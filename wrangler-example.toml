@@ -1,0 +1,196 @@
+# Update the name below to match your own Workers project name
+project_name = 'aitgbot-telegram-workers'
+compatibility_version = '2024-01-01'
+entry_point = './dist/index.js'
+enable_workers_dev = true
+compatibility_settings = [ "nodejs_support" ]
+
+# KV Namespace configuration
+# Make sure to provide your own namespace ID
+# preview_id is optional and only needed for testing
+
+kv_storage = [
+  { alias = 'DATABASE', namespace_id = '', preview_namespace_id = '' }
+]
+
+[settings]
+
+# Refer to the documentation in README.md for additional parameters
+# Uncomment to enable optional settings by removing the `#`
+# All settings should be in string format, and multiple values should be comma-separated.
+
+## -- General --
+##
+## Language support
+#LANGUAGE = 'en-us'
+## Branch to check for updates
+#UPDATE_BRANCH = 'stable'
+## API response timeout for AI chat completions
+#CHAT_COMPLETION_TIMEOUT = '0'
+
+## -- Telegram Settings --
+##
+## Domain for accessing Telegram API
+#TELEGRAM_API_URL = 'https://api.telegram.org'
+## Telegram bot tokens (comma-separated for multiple bots)
+TELEGRAM_BOT_TOKENS = 'TOKEN1,TOKEN2'
+## Default message format
+#DEFAULT_MESSAGE_FORMAT = 'Markdown'
+
+## -- Access Controls --
+##
+## Allow all users to interact with the bot
+#ALLOW_ALL_USERS = 'false'
+## Whitelisted user IDs for restricted access
+USER_WHITELIST = 'USER_ID1,USER_ID2'
+## Restricted user configuration keys
+#LOCKED_USER_CONFIG_KEYS = 'OPENAI_API_URL,AZURE_COMPLETIONS_URL,COHERE_API_URL,ANTHROPIC_API_URL'
+
+## -- Group Settings --
+##
+## Bot names associated with each Telegram bot token (comma-separated)
+TELEGRAM_BOT_NAMES = 'BOT1_NAME,BOT2_NAME'
+## Whitelisted group IDs for restricted access
+GROUP_WHITELIST = 'GROUP_ID1,GROUP_ID2'
+## Enable bot interaction in group chats
+GROUP_BOT_ENABLED = 'true'
+## Share conversation context within groups, otherwise each user has their own session
+#GROUP_CONTEXT_SHARING = 'false'
+
+## -- History Management --
+##
+## Trim chat history to avoid exceeding character limits
+#AUTO_TRIM_HISTORY = 'true'
+## Maximum length for conversation history
+#MAX_HISTORY_ENTRIES = '20'
+## Maximum token length per message
+#MAX_TOKENS_PER_MESSAGE = '2048'
+
+## -- Features --
+##
+## Hide specific command buttons from users
+#HIDDEN_COMMAND_BUTTONS = []
+## Show quick reply buttons
+#ENABLE_QUICK_REPLY_BUTTONS = 'false'
+## Enable extra message context quoting
+#EXTRA_MESSAGE_CONTEXT = 'false'
+
+## -- Mode Settings --
+##
+## Enable streaming mode for real-time AI responses
+#ENABLE_STREAMING_MODE = 'true'
+## Enable safe mode to prevent sensitive content
+#ENABLE_SAFE_MODE = 'true'
+## Enable debugging mode for additional logs
+#ENABLE_DEBUG_MODE = 'false'
+## Enable development mode
+#ENABLE_DEV_MODE = 'false'
+
+## -- AI Configuration --
+##
+## AI provider options: auto, openai, azure, workers, gemini, mistral, cohere, anthropic
+DEFAULT_AI_PROVIDER = 'auto'
+## Image generation provider options: auto, openai, azure, workers
+DEFAULT_IMAGE_PROVIDER = 'auto'
+## Global default initialization message for all sessions
+#INITIAL_SYSTEM_MESSAGE = 'You are an intelligent assistant, ready to help.'
+## Role assigned to the initialization message
+#SYSTEM_MESSAGE_ROLE = 'system'
+
+## -- OpenAI Configuration --
+##
+## OpenAI API Key
+OPENAI_API_KEYS = 'API_KEY1,API_KEY2'
+## OpenAI model name
+#OPENAI_MODEL = 'gpt-4o-mini'
+## OpenAI API Base URL
+#OPENAI_API_URL = 'https://api.openai.com/v1'
+## Additional OpenAI API parameters (in JSON format)
+#OPENAI_API_EXTRA_PARAMETERS = '{}'
+
+## -- DALL-E Configuration --
+##
+## DALL-E model name for image generation
+#DALL_E_MODEL = 'dall-e-2'
+## DALL-E image resolution
+#DALL_E_IMAGE_RESOLUTION = '512x512'
+## DALL-E image quality settings
+#DALL_E_IMAGE_QUALITY = 'high'
+## DALL-E image style settings
+#DALL_E_IMAGE_STYLE = 'realistic'
+
+## -- Azure Configuration --
+##
+## Azure API Key for AI services
+#AZURE_API_KEY = ''
+## Azure Completions API URL
+#AZURE_COMPLETIONS_API = ''
+## Azure DALL-E Image API URL
+#AZURE_DALLE_API = ''
+
+## -- Workers Configuration --
+##
+## Cloudflare account ID for Workers
+#CLOUDFLARE_ACCOUNT_ID = ''
+## Cloudflare API Token
+#CLOUDFLARE_API_TOKEN = ''
+## Text generation model for Workers
+#WORKERS_CHAT_MODEL = '@cf/mistral/mistral-7b'
+## Text-to-image generation model for Workers
+#WORKERS_IMAGE_MODEL = '@cf/stabilityai/stable-diffusion-xl'
+
+## -- Gemini Configuration --
+##
+## Google API Key for Gemini services
+#GOOGLE_GEMINI_API_KEY = ''
+## Google Gemini completions API
+#GOOGLE_GEMINI_API = 'https://generativelanguage.googleapis.com/v1beta/models/'
+## Google Gemini model name
+#GOOGLE_GEMINI_MODEL = 'gemini-pro'
+
+## -- Mistral Configuration --
+##
+## Mistral API Key
+#MISTRAL_API_KEY = ''
+## Mistral API Base URL
+#MISTRAL_API_URL = 'https://api.mistral.ai/v1'
+## Mistral model for chat completions
+#MISTRAL_CHAT_MODEL = 'mistral-3b'
+
+## -- Cohere Configuration --
+##
+## Cohere API Key
+#COHERE_API_KEY = ''
+## Cohere API Base URL
+#COHERE_API_URL = 'https://api.cohere.com/v1'
+## Cohere model for chat completions
+#COHERE_CHAT_MODEL = 'command-r-plus'
+
+## -- Anthropic Configuration --
+##
+## Anthropic API Key
+#ANTHROPIC_API_KEY = ''
+## Anthropic API Base URL
+#ANTHROPIC_API_URL = 'https://api.anthropic.com/v1'
+## Anthropic chat model for completions
+#ANTHROPIC_CHAT_MODEL = 'claude-3'
+
+## -- Custom Commands --
+CUSTOM_COMMAND_azure = '/setenvs {"DEFAULT_AI_PROVIDER": "azure"}'
+COMMAND_DESCRIPTION_azure = 'Switch AI provider to Azure'
+
+CUSTOM_COMMAND_workers = '/setenvs {"DEFAULT_AI_PROVIDER": "workers"}'
+COMMAND_DESCRIPTION_workers = 'Switch AI provider to Workers'
+
+CUSTOM_COMMAND_openai = '/setenvs {"DEFAULT_AI_PROVIDER": "openai"}'
+COMMAND_DESCRIPTION_openai = 'Switch AI provider to OpenAI'
+
+CUSTOM_COMMAND_translate_cn2en = '/setenvs {"INITIAL_SYSTEM_MESSAGE": "Translate everything I say from Chinese to English."}'
+COMMAND_DESCRIPTION_translate_cn2en = 'Switch to Chinese-to-English translation mode'
+
+## -- Plugin Commands --
+PLUGIN_COMMAND_dns = "https://raw.githubusercontent.com/[YourRepo]/aitgbot-workers/plugins/dns.json"
+PLUGIN_DESCRIPTION_dns = "DNS Lookup: /dns <type> <domain>"
+
+PLUGIN_COMMAND_dictionary_en = "https://raw.githubusercontent.com/[YourRepo]/aitgbot-workers/plugins/dictionary_en.json"
+PLUGIN_DESCRIPTION_dictionary_en = "English Dictionary: /dicten <word>"

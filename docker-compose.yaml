@@ -1,0 +1,9 @@
+name: aitgbot
+services:
+  aitgbot:
+    build: .
+    ports:
+      - "8787:8787"
+    volumes:
+      - ./config.json:/app/config.json:ro  
+      - ./wrangler.toml:/app/config.toml:ro  
